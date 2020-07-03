@@ -153,11 +153,14 @@ function managerQuestions() {
 // and to create objects for each team member (using the correct classes as blueprints!)
 
 function createHTMLFile(){
-    const html = render(employees);
-    console.log(html);
+    
+  if (!fs.existsSync(OUTPUT_DIR)) {
+    fs.mkdirSync(OUTPUT_DIR);
+  }
+  
+  fs.writeFileSync(outputPath, render(employees), "utf-8")
+}
 
-    fs.writefile
-};
 
 // After the user has input all employees desired, call the `render` function (required above) and pass in an array containing all employee objects; the `render` function will generate and return a block of HTML including templated divs for each employee!
 
